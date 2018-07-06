@@ -1,5 +1,7 @@
 import React from 'react'
 
+const URL = 'http://localhost:3000/api/v1/'
+
 class Home extends React.Component {
 
   state = {
@@ -14,6 +16,15 @@ class Home extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault()
+    fetch(URL + `players/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        words: e.target.value
+      })
+    })
   }
 
   render() {
