@@ -14,15 +14,16 @@ class Home extends React.Component {
     })
   }
 
-  onSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.state.name)
     fetch(URL + `players/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        words: e.target.value
+        player: this.state.name
       })
     })
   }
@@ -31,7 +32,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1> Enter a player name </h1>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
           <input type='submit'/>
         </form>
