@@ -3,7 +3,7 @@ import Player from '../components/Player.js'
 
 class PlayerList extends React.Component {
   render() {
-    let players = this.props.players.map(player => <Player key={player.accountId} stats={player} />);
+    let players = this.props.players.map(player => <Player key={player.accountId} removePlayer={this.props.removePlayer} stats={player} />);
     console.log(this.props.players)
     return (
       <div className="player-list">

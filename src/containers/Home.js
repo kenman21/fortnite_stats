@@ -1,6 +1,5 @@
 import React from 'react'
 import PlayerList from './PlayerList.js'
-import Player from '../components/Player.js'
 import TeamStats from './TeamStats.js'
 
 const URL = 'http://localhost:3000/api/v1/'
@@ -48,6 +47,10 @@ class Home extends React.Component {
     })
   }
 
+  removePlayer = () => {
+    console.log("removed")
+  }
+
   render() {
     return (
       <div>
@@ -62,8 +65,8 @@ class Home extends React.Component {
           </select>
           <input type='submit'/>
         </form>
-        <TeamStats/>
-        <PlayerList players={this.state.players}/>
+        <TeamStats players={this.state.players}/>
+        <PlayerList players={this.state.players} removePlayer={this.removePlayer}/>
       </div>
     )
   }
