@@ -17,7 +17,6 @@ class Home extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state.name)
     fetch(URL + `players/search`, {
       method: 'POST',
       headers: {
@@ -27,7 +26,7 @@ class Home extends React.Component {
         player: this.state.name,
         platform: this.state.platform
       })
-    })
+    }).then(resp => resp.json()).then(console.log)
   }
 
   platformChange = (e) => {
@@ -37,14 +36,13 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.platform)
     return (
       <div>
         <h1> Enter a player name </h1>
         <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
           <select onChange={this.platformChange} name="platform">
-            <option disabled selected value> - select a platform - </option>
+            <option selected="selected"> - select a platform - </option>
             <option value="pc">PC</option>
             <option value="xbl">XBOX</option>
             <option value="psn">PS4</option>
