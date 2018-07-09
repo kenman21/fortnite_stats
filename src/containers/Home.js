@@ -5,7 +5,8 @@ const URL = 'http://localhost:3000/api/v1/'
 class Home extends React.Component {
 
   state = {
-    name: ""
+    name: "",
+    platform: ""
   }
 
   onChange = (e) => {
@@ -23,17 +24,31 @@ class Home extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        player: this.state.name
+        player: this.state.name,
+        platform: this.state.platform
       })
     })
   }
 
+  platformChange = (e) => {
+    this.setState({
+      platform: e.target.value
+    })
+  }
+
   render() {
+    console.log(this.state.platform)
     return (
       <div>
         <h1> Enter a player name </h1>
         <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
+          <select onChange={this.platformChange} name="platform">
+            <option disabled selected value> - select a platform - </option>
+            <option value="pc">PC</option>
+            <option value="xbl">XBOX</option>
+            <option value="psn">PS4</option>
+          </select>
           <input type='submit'/>
         </form>
       </div>
