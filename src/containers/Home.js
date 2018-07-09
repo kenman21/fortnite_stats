@@ -45,7 +45,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1> Enter a player name </h1>
+        <h1> Assemble Your Squad </h1>
         <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
           <select onChange={this.platformChange} name="platform">
