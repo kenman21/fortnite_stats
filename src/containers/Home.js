@@ -1,6 +1,7 @@
 import React from 'react'
 import PlayerList from './PlayerList.js'
 import Player from '../components/Player.js'
+import TeamStats from './TeamStats.js'
 
 const URL = 'http://localhost:3000/api/v1/'
 
@@ -29,10 +30,15 @@ class Home extends React.Component {
         player: this.state.name,
         platform: this.state.platform
       })
-    }).then(resp => resp.json()).then(resp =>
-      this.setState({
-        players: [...this.state.players, resp]
-      })
+    }).then(resp => resp.json()).then(resp => {
+        if (resp.error) {
+
+        } else {
+          this.setState({
+            players: [...this.state.players, resp]
+          })
+        }
+      }
     )
   }
 
@@ -56,6 +62,7 @@ class Home extends React.Component {
           </select>
           <input type='submit'/>
         </form>
+        <TeamStats/>
         <PlayerList players={this.state.players}/>
       </div>
     )
