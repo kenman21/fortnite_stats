@@ -1,4 +1,6 @@
 import React from 'react'
+import PlayerList from './PlayerList.js'
+import Player from '../components/Player.js'
 
 const URL = 'http://localhost:3000/api/v1/'
 
@@ -38,6 +40,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+
         <h1> Enter a player name </h1>
         <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
@@ -49,6 +52,7 @@ class Home extends React.Component {
           </select>
           <input type='submit'/>
         </form>
+        <PlayerList/>
       </div>
     )
   }
