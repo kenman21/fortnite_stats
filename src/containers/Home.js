@@ -47,8 +47,10 @@ class Home extends React.Component {
     })
   }
 
-  removePlayer = () => {
-    console.log("removed")
+  removePlayer = (index) => {
+    this.setState({
+      players: [...this.state.players.slice(0,index), ...this.state.players.slice(index+1)]
+    })
   }
 
   render() {
