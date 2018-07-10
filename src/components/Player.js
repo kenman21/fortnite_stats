@@ -2,6 +2,7 @@ import React from 'react'
 
 class Player extends React.Component {
   render() {
+    console.log(this.props.stats.lifeTimeStats);
     return(
       <div className="player">
         <div className="player-header">
