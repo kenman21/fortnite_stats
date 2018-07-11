@@ -9,7 +9,8 @@ class Home extends React.Component {
   state = {
     name: "",
     platform: "",
-    players: []
+    players: [],
+    average: {}
   }
 
   onChange = (e) => {
@@ -53,10 +54,16 @@ class Home extends React.Component {
     })
   }
 
+  setAverage = (obj) => {
+    this.setState({
+      average: obj
+    })
+  }
+
   render() {
     return (
       <div>
-        <h1> Assemble Your Squad </h1>
+        <h1 className="header"> Assemble Your Squad </h1>
         <form onSubmit={this.handleSubmit}>
           <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
           <select onChange={this.platformChange} name="platform">
@@ -67,7 +74,7 @@ class Home extends React.Component {
           </select>
           <input type='submit'/>
         </form>
-        <TeamStats players={this.state.players}/>
+        <TeamStats players={this.state.players} setAverage={this.setAverage}/>
         <PlayerList players={this.state.players} removePlayer={this.removePlayer}/>
       </div>
     )
