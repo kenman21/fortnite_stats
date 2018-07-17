@@ -8,7 +8,7 @@ class TeamStats extends React.Component {
 
   componentDidUpdate(prevProps) {
     // If there are players in the 'squad' create an average of their stats
-    if (this.props.players !== prevProps.players){
+    if (this.props.players !== prevProps.players && this.props.players.length !== 0){
       let avg_stats
       avg_stats = Array(this.props.players[0].lifeTimeStats.length)
       for (let i = 0; i < avg_stats.length; i++){
@@ -31,10 +31,14 @@ class TeamStats extends React.Component {
       })
       this.props.setAverage(avg_stats)
     }
+    else if (this.props.players.length === 0 && prevProps.players.length !== 0){
+      this.setState({
+        average: []
+      })
+    }
   }
 
   render() {
-
     return(
       <div className="player-list">
         {this.state.average.length !== 0 ?

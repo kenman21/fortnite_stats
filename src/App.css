@@ -51,3 +51,11 @@
 .stats {
   font-family: 'Open Sans', sans-serif;
 }
+
+.icon {
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+}

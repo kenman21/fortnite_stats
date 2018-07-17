@@ -45,7 +45,7 @@ class Home extends React.Component {
 
   platformChange = (e) => {
     this.setState({
-      platform: e.target.value
+      platform: e.target.id
     })
   }
 
