@@ -1,16 +1,17 @@
 import React from 'react'
 import PlayerList from './PlayerList.js'
 import TeamStats from './TeamStats.js'
+import Search from './Search.js'
 
 const URL = 'http://localhost:3000/api/v1/'
 
 class Home extends React.Component {
 
   state = {
-    name: "",
-    platform: "",
     players: [],
-    average: {}
+    average: {},
+    name: "",
+    platform: ""
   }
 
   onChange = (e) => {
@@ -64,16 +65,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1 className="header"> Assemble Your Squad </h1>
-        <form onSubmit={this.handleSubmit}>
-          <input className='player-name' type='text' value={this.state.name} onChange={this.onChange}/>
-          <select onChange={this.platformChange} name="platform">
-            <option selected="selected"> - select a platform - </option>
-            <option value="pc">PC</option>
-            <option value="xbl">XBOX</option>
-            <option value="psn">PS4</option>
-          </select>
-          <input type='submit'/>
-        </form>
+        <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
         <TeamStats players={this.state.players} setAverage={this.setAverage}/>
         <PlayerList players={this.state.players} removePlayer={this.removePlayer}/>
       </div>
