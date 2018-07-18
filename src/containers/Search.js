@@ -2,6 +2,15 @@ import React from 'react'
 
 class Search extends React.Component {
 
+  handleFocus = (e) => {
+    debugger
+    console.log(e.target)
+  }
+
+  handleBlur = (e) => {
+
+  }
+
   render() {
     return(
       <form onSubmit={this.props.handleSubmit}>
@@ -10,9 +19,15 @@ class Search extends React.Component {
             <input className='player-name' type='text' value={this.props.name} onChange={this.props.onChange}/>
           </div>
           <div className="icons">
-            <img className="icon" onClick={this.props.platformChange} id="psn" src="ps4.png"/>
-            <img className="icon" onClick={this.props.platformChange} id="xbl" src="xbox.png"/>
-            <img className="icon" onClick={this.props.platformChange} id="pc" src="pc.png"/>
+            <a className="imageAnchor" href="#">
+              <img className="icon" onClick={this.props.platformChange} id="psn" src="ps4.png"/>
+            </a>
+            <a className="imageAnchor" href="#">
+              <img className="icon" onClick={this.props.platformChange} id="xbl" src="xbox.png"/>
+            </a>
+            <a className="imageAnchor" href="#">
+              <img className="icon" onClick={this.props.platformChange} id="pc" src="pc.png"/>
+            </a>
           </div>
         <input type='submit'/>
         </div>

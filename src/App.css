@@ -69,3 +69,7 @@
   width: 150px;
   text-align: center;
 }
+
+.imageAnchor:focus img{
+    border: 2px solid #66AFE9;;
+}
