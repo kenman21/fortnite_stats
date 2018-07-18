@@ -58,4 +58,14 @@
   padding: 5px;
   height: 30px;
   width: 30px;
+  margin: 5px;
+}
+
+.icons {
+  margin: 10px;
+}
+
+.player-name {
+  width: 150px;
+  text-align: center;
 }
