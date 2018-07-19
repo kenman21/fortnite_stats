@@ -2,15 +2,6 @@ import React from 'react'
 
 class Search extends React.Component {
 
-  handleFocus = (e) => {
-    debugger
-    console.log(e.target)
-  }
-
-  handleBlur = (e) => {
-
-  }
-
   render() {
     return(
       <form onSubmit={this.props.handleSubmit}>
