@@ -1,4 +1,5 @@
 import React from 'react'
+import { CSSTransitionGroup } from 'react-transition-group'
 
 class TeamStats extends React.Component {
 
@@ -40,7 +41,12 @@ class TeamStats extends React.Component {
 
   render() {
     return(
-      <div className="player-list">
+      <CSSTransitionGroup
+        transitionName="Player"
+        component="div"
+        className="player-list"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}>
         {this.state.average.length !== 0 ?
         <div className="player">
           <div className="player-header">
@@ -53,7 +59,7 @@ class TeamStats extends React.Component {
           </div>
         </div>
         : null}
-      </div>
+      </CSSTransitionGroup>
     )
   }
 }

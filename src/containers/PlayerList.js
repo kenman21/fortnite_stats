@@ -8,11 +8,11 @@ class PlayerList extends React.Component {
     let players = this.props.players.map((player,index) => <Player key={index} index={index} removePlayer={this.props.removePlayer} stats={player} />);
     return (
         <CSSTransitionGroup
+          transitionName="Player"
           component="div"
           className="player-list"
-          transitionName="Player"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}>
+          transitionLeaveTimeout={300}>
           {players}
         </CSSTransitionGroup>
     )
