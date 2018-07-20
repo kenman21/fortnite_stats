@@ -73,23 +73,34 @@
 .imageAnchor:focus img{
     border: 2px solid #66AFE9;;
 }
+/*
+.Player-appear {
+  opacity: 0.01;
+}
+
+.Player-appear.Player-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+} */
 
 .Player-enter {
-  opacity: 0.01;
-  transform: translateY(200px);
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
 .Player-enter.Player-enter-active {
   opacity: 1;
-  transform: translateY(0px);
-  transition: opacity 500ms ease-in;
+  transform: translateX(0px);
+  transition: all 500ms ease-out;
 }
 
 .Player-leave {
   opacity: 1;
+  transform: translateX(0px);
 }
 
 .Player-leave.Player-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transform: translateX(-20px);
+  transition: all 500ms ease-in;
 }

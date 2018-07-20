@@ -45,8 +45,11 @@ class TeamStats extends React.Component {
         transitionName="Player"
         component="div"
         className="player-list"
+        transitionAppear={false}
+        transitionEnter={true}
         transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
+        transitionLeave={true}
+        transitionLeaveTimeout={false}>
         {this.state.average.length !== 0 ?
         <div className="player">
           <div className="player-header">
