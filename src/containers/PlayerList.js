@@ -13,9 +13,9 @@ class PlayerList extends React.Component {
           className="player-list"
           transitionAppear={false}
           transitionEnter={true}
-          transitionEnterTimeout={500}
+          transitionEnterTimeout={200}
           transitionLeave={true}
-          transitionLeaveTimeout={false}>
+          transitionLeaveTimeout={200}>
           {players}
         </CSSTransitionGroup>
     )

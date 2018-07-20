@@ -73,34 +73,35 @@
 .imageAnchor:focus img{
     border: 2px solid #66AFE9;;
 }
-/*
-.Player-appear {
-  opacity: 0.01;
-}
 
-.Player-appear.Player-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
+/* .Player-enter {
+  opacity: 0;
 } */
 
-.Player-enter {
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
 .Player-enter.Player-enter-active {
-  opacity: 1;
-  transform: translateX(0px);
-  transition: all 500ms ease-out;
+  animation-name: appear;
+  animation-duration: 200ms;
 }
 
-.Player-leave {
+/* .Player-leave {
   opacity: 1;
-  transform: translateX(0px);
-}
+} */
 
 .Player-leave.Player-leave-active {
-  opacity: 0.01;
-  transform: translateX(-20px);
-  transition: all 500ms ease-in;
+  animation-name: disappear;
+  animation-duration: 200ms;
+}
+
+@keyframes appear {
+  0% {opacity: 0;transform: translateY(-20px);}
+  50% {opacity: .5;transform: translateY(20px);}
+  75% {opacity: .75;transform: translateY(10px);}
+  100% {opacity: 1;transform: translateY(0px);}
+}
+
+@keyframes disappear {
+  0% {opacity: 1;transform: translateY(0px);}
+  50% {opacity: 1;transform: translateY(10px);}
+  75% {opacity: 1;transform: translateY(20px);}
+  100% {opacity: 0;transform: translateY(-50px); }
 }
