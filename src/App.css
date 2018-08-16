@@ -30,6 +30,7 @@
 
 .remove-player {
   float: right;
+  margin: 0;
 }
 
 .player-list {
@@ -47,13 +48,17 @@
 }
 
 .player-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  width: 100%;
+  text-align: center;
 }
 
 .stats {
   font-family: 'Open Sans', sans-serif;
+}
+
+.stats h1{
+  font-size: 16px;
+  text-align: left;
 }
 
 .icon {
