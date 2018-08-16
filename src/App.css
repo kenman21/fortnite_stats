@@ -28,6 +28,10 @@
   to { transform: rotate(360deg); }
 }
 
+.remove-player {
+  float: right;
+}
+
 .player-list {
   display: flex;
   flex-direction: row;
