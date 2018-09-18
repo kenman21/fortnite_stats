@@ -64,6 +64,9 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <div class="nav">
+           <h1> FORTNITE TRACKER </h1>
+        </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
         <TeamStats players={this.state.players} setAverage={this.setAverage}/>
