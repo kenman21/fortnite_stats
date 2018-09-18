@@ -75,7 +75,7 @@ class Home extends React.Component {
         if (resp.error) {
 
         } else {
-
+          debugger
         }
       }
     )

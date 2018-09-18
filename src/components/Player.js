@@ -2,7 +2,6 @@ import React from 'react'
 
 class Player extends React.Component {
   render() {
-    console.log(this.props.stats.accountId)
     return(
       <div className="player">
         <p onClick={() => this.props.removePlayer(this.props.index)} className="remove-player">X</p>
