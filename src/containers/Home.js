@@ -11,7 +11,8 @@ class Home extends React.Component {
     players: [],
     average: {},
     name: "",
-    platform: ""
+    platform: "",
+    history: ""
   }
 
   onChange = (e) => {
@@ -62,7 +63,22 @@ class Home extends React.Component {
   }
 
   getHistory = (player) => {
-    console.log(player)
+    fetch(URL + `players/history`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        player: player
+      })
+    }).then(resp => resp.json()).then(resp => {
+        if (resp.error) {
+
+        } else {
+          
+        }
+      }
+    )
   }
 
   render() {
