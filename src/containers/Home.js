@@ -65,7 +65,7 @@ class Home extends React.Component {
     return (
       <div>
         <div class="nav">
-           <h1> FORTNITE TRACKER </h1>
+           <h1 class="title">FORTNITE TEAM</h1> 
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>

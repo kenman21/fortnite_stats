@@ -114,3 +114,19 @@
   75% {opacity: 1;transform: translateY(20px);}
   100% {opacity: 0;transform: translateY(-50px); }
 }
+
+.nav {
+  background-color: Navy;
+  height: 50px;
+}
+
+.title {
+  color: white;
+  margin: 0;
+  padding: 15px;
+  float: left;
+}
+
+.header {
+  text-align: center;
+}
