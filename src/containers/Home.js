@@ -61,16 +61,20 @@ class Home extends React.Component {
     })
   }
 
+  getHistory = (player) => {
+    console.log(player)
+  }
+
   render() {
     return (
       <div>
         <div class="nav">
-           <h1 class="title">FORTNITE TEAM</h1> 
+           <h1 class="title">FORTNITE TEAM</h1>
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
         <TeamStats players={this.state.players} setAverage={this.setAverage}/>
-        <PlayerList players={this.state.players} removePlayer={this.removePlayer}/>
+        <PlayerList players={this.state.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
       </div>
     )
   }

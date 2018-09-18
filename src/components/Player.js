@@ -13,7 +13,7 @@ class Player extends React.Component {
           <h1> Win %: {this.props.stats.lifeTimeStats[9].value} </h1>
           <h1> Matches Played: {this.props.stats.lifeTimeStats[7].value} </h1>
           <h1> Platform: {this.props.stats.platformNameLong} </h1>
-          <a href="#"> Check Match History </a>
+          <a href="#" onClick={() => {this.props.getHistory(this.props.stats.epicUserHandle)}}> Check Match History </a>
         </div>
       </div>
     )
