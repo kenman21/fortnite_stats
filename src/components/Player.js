@@ -2,6 +2,7 @@ import React from 'react'
 
 class Player extends React.Component {
   render() {
+    console.log(this.props.stats.accountId)
     return(
       <div className="player">
         <p onClick={() => this.props.removePlayer(this.props.index)} className="remove-player">X</p>
@@ -13,7 +14,7 @@ class Player extends React.Component {
           <h1> Win %: {this.props.stats.lifeTimeStats[9].value} </h1>
           <h1> Matches Played: {this.props.stats.lifeTimeStats[7].value} </h1>
           <h1> Platform: {this.props.stats.platformNameLong} </h1>
-          <a href="#" onClick={() => {this.props.getHistory(this.props.stats.epicUserHandle)}}> Check Match History </a>
+          <a href="#" onClick={() => {this.props.getHistory(this.props.stats.accountId)}}> Check Match History </a>
         </div>
       </div>
     )

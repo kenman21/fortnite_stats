@@ -62,20 +62,20 @@ class Home extends React.Component {
     })
   }
 
-  getHistory = (player) => {
+  getHistory = (accountId) => {
     fetch(URL + `players/history`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        player: player
+        accountId: accountId
       })
     }).then(resp => resp.json()).then(resp => {
         if (resp.error) {
 
         } else {
-          
+
         }
       }
     )
