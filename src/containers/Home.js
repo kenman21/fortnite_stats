@@ -2,6 +2,7 @@ import React from 'react'
 import PlayerList from './PlayerList.js'
 import TeamStats from './TeamStats.js'
 import Search from './Search.js'
+import History from './History.js'
 
 const URL = 'http://localhost:3000/api/v1/'
 
@@ -92,6 +93,7 @@ class Home extends React.Component {
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
         <TeamStats players={this.state.players} setAverage={this.setAverage}/>
+        <History history={this.state.history}/>
         <PlayerList players={this.state.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
       </div>
     )
