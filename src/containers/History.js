@@ -5,7 +5,8 @@ class History extends React.Component{
   render() {
     console.log(this.props.history)
   return (
-    <div>
+    <div class="history-container">
+      {this.props.history[0].dateCollected}
     </div>
     )
   }

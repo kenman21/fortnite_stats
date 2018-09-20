@@ -13,7 +13,7 @@ class Home extends React.Component {
     average: {},
     name: "",
     platform: "",
-    history: ""
+    history: null
   }
 
   onChange = (e) => {
@@ -94,7 +94,7 @@ class Home extends React.Component {
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
         <TeamStats players={this.state.players} setAverage={this.setAverage}/>
-        <History history={this.state.history}/>
+        {this.state.history ? <History history={this.state.history}/>:null}
         <PlayerList players={this.state.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
       </div>
     )
