@@ -46,6 +46,7 @@ class Home extends React.Component {
   }
 
   platformChange = (e) => {
+    e.preventDefault()
     this.setState({
       platform: e.target.id
     })
