@@ -4,6 +4,7 @@ import TeamStats from './TeamStats.js'
 import Search from './Search.js'
 import History from './History.js'
 import {connect} from 'react-redux'
+import {setPlatform} from '../actions/actions'
 
 const URL = 'http://localhost:3000/api/v1/'
 
@@ -13,7 +14,6 @@ class Home extends React.Component {
     players: [],
     average: {},
     name: "",
-    platform: "",
     history: null
   }
 
@@ -48,9 +48,7 @@ class Home extends React.Component {
 
   platformChange = (e) => {
     e.preventDefault()
-    this.setState({
-      platform: e.target.id
-    })
+    this.props.setPlatform(e.target.id)
   }
 
   removePlayer = (index) => {
@@ -108,4 +106,4 @@ function mapStatetoProps(state) {
   }
 }
 
-export default connect(mapStatetoProps)(Home)
+export default connect(null, {setPlatform})(Home)
