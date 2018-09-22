@@ -3,6 +3,7 @@ import PlayerList from './PlayerList.js'
 import TeamStats from './TeamStats.js'
 import Search from './Search.js'
 import History from './History.js'
+import {connect} from 'react-redux'
 
 const URL = 'http://localhost:3000/api/v1/'
 
@@ -101,4 +102,10 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+function mapStatetoProps(state) {
+  return {
+
+  }
+}
+
+export default connect(mapStatetoProps)(Home)
