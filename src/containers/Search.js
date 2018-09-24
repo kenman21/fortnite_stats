@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {setName, setPlatform} from '../actions/actions'
-
+import {fetchPlayer} from '../actions/fetch_actions'
 
 class Search extends React.Component {
 
@@ -10,9 +10,14 @@ class Search extends React.Component {
     this.props.setPlatform(e.target.id)
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.fetchPlayer(this.props.name, this.props.platform)
+  }
+
   render() {
     return(
-      <form onSubmit={this.props.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div className="search">
           <div className="input">
             <input className='player-name' type='text' value={this.props.name} onChange={(e) => this.props.setName(e.target.value)}/>
@@ -42,7 +47,7 @@ function mapStatetoProps(state){
   }
 }
 
-export default connect(mapStatetoProps, {setName, setPlatform})(Search)
+export default connect(mapStatetoProps, {setName, setPlatform, fetchPlayer})(Search)
 
 
 // <select onChange={this.props.platformChange} name="platform">

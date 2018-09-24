@@ -6,34 +6,11 @@ import History from './History.js'
 import {connect} from 'react-redux'
 import {setPlayers} from '../actions/actions'
 
-const URL = 'http://localhost:3000/api/v1/'
-
 class Home extends React.Component {
 
   state = {
     average: {},
     history: null
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    fetch(URL + `players/search`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        player: this.props.name,
-        platform: this.props.platform
-      })
-    }).then(resp => resp.json()).then(resp => {
-        if (resp.error) {
-
-        } else {
-          this.props.setPlayers(resp)
-        }
-      }
-    )
   }
 
   removePlayer = (index) => {
@@ -76,7 +53,7 @@ class Home extends React.Component {
            <h1 class="title">FORTNITE TEAM</h1>
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
-        <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange}/>
+        <Search/>
         <TeamStats players={this.props.players} setAverage={this.setAverage}/>
         {this.state.history ? <History history={this.state.history}/>:null}
         <PlayerList players={this.props.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
