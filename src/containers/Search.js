@@ -29,6 +29,7 @@ class Search extends React.Component {
 
 export default Search
 
+
 // <select onChange={this.props.platformChange} name="platform">
 //   <option selected="selected"> - select a platform - </option>
 //   <option value="pc">PC</option>

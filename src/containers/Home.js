@@ -4,14 +4,13 @@ import TeamStats from './TeamStats.js'
 import Search from './Search.js'
 import History from './History.js'
 import {connect} from 'react-redux'
-import {setPlatform} from '../actions/actions'
+import {setPlatform, setPlayers} from '../actions/actions'
 
 const URL = 'http://localhost:3000/api/v1/'
 
 class Home extends React.Component {
 
   state = {
-    players: [],
     average: {},
     name: "",
     history: null
@@ -38,9 +37,7 @@ class Home extends React.Component {
         if (resp.error) {
 
         } else {
-          this.setState({
-            players: [...this.state.players, resp]
-          })
+          this.props.setPlayers(resp)
         }
       }
     )
@@ -92,9 +89,9 @@ class Home extends React.Component {
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search handleSubmit={this.handleSubmit} platformChange={this.platformChange} onChange={this.onChange} name={this.state.name}/>
-        <TeamStats players={this.state.players} setAverage={this.setAverage}/>
+        <TeamStats players={this.props.players} setAverage={this.setAverage}/>
         {this.state.history ? <History history={this.state.history}/>:null}
-        <PlayerList players={this.state.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
+        <PlayerList players={this.props.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
       </div>
     )
   }
@@ -102,8 +99,9 @@ class Home extends React.Component {
 
 function mapStatetoProps(state) {
   return {
-    platform: state.platform
+    platform: state.platform,
+    players: state.players
   }
 }
 
-export default connect(mapStatetoProps, {setPlatform})(Home)
+export default connect(mapStatetoProps, {setPlatform, setPlayers})(Home)
