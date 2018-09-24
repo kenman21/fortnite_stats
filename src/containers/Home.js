@@ -32,7 +32,7 @@ class Home extends React.Component {
       },
       body: JSON.stringify({
         player: this.state.name,
-        platform: this.state.platform
+        platform: this.props.platform
       })
     }).then(resp => resp.json()).then(resp => {
         if (resp.error) {
@@ -102,8 +102,8 @@ class Home extends React.Component {
 
 function mapStatetoProps(state) {
   return {
-
+    platform: state.platform
   }
 }
 
-export default connect(null, {setPlatform})(Home)
+export default connect(mapStatetoProps, {setPlatform})(Home)
