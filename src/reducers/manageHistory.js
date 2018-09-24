@@ -12,6 +12,8 @@ export default function manageHistory(state = defaultState, action) {
       return {...state, platform: action.payload}
     case 'SET_PLAYERS':
       return {...state, players: [...state.players, action.payload]}
+    case 'SET_NAME':
+      return {...state, name: action.payload}
     default:
       return state
     }

@@ -1,23 +1,31 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {setName, setPlatform} from '../actions/actions'
+
 
 class Search extends React.Component {
+
+  platformChange = (e) => {
+    e.preventDefault()
+    this.props.setPlatform(e.target.id)
+  }
 
   render() {
     return(
       <form onSubmit={this.props.handleSubmit}>
         <div className="search">
           <div className="input">
-            <input className='player-name' type='text' value={this.props.name} onChange={this.props.onChange}/>
+            <input className='player-name' type='text' value={this.props.name} onChange={(e) => this.props.setName(e.target.value)}/>
           </div>
           <div className="icons">
             <a className="imageAnchor" href="#">
-              <img className="icon" onClick={this.props.platformChange} id="psn" src="ps4.png"/>
+              <img className="icon" onClick={this.platformChange} id="psn" src="ps4.png"/>
             </a>
             <a className="imageAnchor" href="#">
-              <img className="icon" onClick={this.props.platformChange} id="xbl" src="xbox.png"/>
+              <img className="icon" onClick={this.platformChange} id="xbl" src="xbox.png"/>
             </a>
             <a className="imageAnchor" href="#">
-              <img className="icon" onClick={this.props.platformChange} id="pc" src="pc.png"/>
+              <img className="icon" onClick={this.platformChange} id="pc" src="pc.png"/>
             </a>
           </div>
         <input type='submit'/>
@@ -27,7 +35,14 @@ class Search extends React.Component {
   }
 }
 
-export default Search
+function mapStatetoProps(state){
+  return {
+    name: state.name,
+    platform: state.platform
+  }
+}
+
+export default connect(mapStatetoProps, {setName, setPlatform})(Search)
 
 
 // <select onChange={this.props.platformChange} name="platform">
