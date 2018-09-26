@@ -1,11 +1,9 @@
 import React from 'react'
 import { CSSTransitionGroup } from 'react-transition-group'
+import {setAverage} from '../actions/actions'
+import {connect} from 'react-redux'
 
 class TeamStats extends React.Component {
-
-  state = {
-    average: []
-  }
 
   componentDidUpdate(prevProps) {
     // If there are players in the 'squad' create an average of their stats
@@ -27,15 +25,11 @@ class TeamStats extends React.Component {
         avg_stats[i].value = avg_stats[i].value/this.props.players.length;
         avg_stats[i].value = Math.trunc(avg_stats[i].value * 100)/100
       }
-      this.setState({
-        average: avg_stats
-      })
+      
       this.props.setAverage(avg_stats)
     }
     else if (this.props.players.length === 0 && prevProps.players.length !== 0){
-      this.setState({
-        average: []
-      })
+      this.props.setAverage([])
     }
   }
 
@@ -50,15 +44,15 @@ class TeamStats extends React.Component {
         transitionEnterTimeout={200}
         transitionLeave={true}
         transitionLeaveTimeout={200}>
-        {this.state.average.length !== 0 ?
+        {this.props.average.length !== 0 ?
         <div className="player">
           <div className="player-header">
             <h1> Squad Stats </h1>
           </div>
           <div className="stats">
-            <h5> K/d: {this.state.average[11].value} </h5>
-            <h5> Win %: {this.state.average[9].value} </h5>
-            <h5> Matches Played: {this.state.average[7].value} </h5>
+            <h5> K/d: {this.props.average[11].value} </h5>
+            <h5> Win %: {this.props.average[9].value} </h5>
+            <h5> Matches Played: {this.props.average[7].value} </h5>
           </div>
         </div>
         : null}
@@ -67,4 +61,11 @@ class TeamStats extends React.Component {
   }
 }
 
-export default TeamStats
+function mapStatetoProps(state){
+  return {
+    players: state.players,
+    average: state.average
+  }
+}
+
+export default connect(mapStatetoProps, {setAverage})(TeamStats)

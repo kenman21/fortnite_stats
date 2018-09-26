@@ -1,6 +1,6 @@
 let defaultState = {
     players: [],
-    average: {},
+    average: [],
     name: "",
     platform: "",
     history: null
@@ -14,6 +14,8 @@ export default function manageHistory(state = defaultState, action) {
       return {...state, players: [...state.players, action.payload]}
     case 'SET_NAME':
       return {...state, name: action.payload}
+    case 'SET_AVERAGE':
+      return {...state, average: action.payload}
     default:
       return state
     }

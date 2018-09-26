@@ -15,3 +15,9 @@ export function setName(string){
     dispatch({type: 'SET_NAME', payload: string})
   }
 }
+
+export function setAverage(object){
+  return (dispatch) => {
+    dispatch({type: 'SET_AVERAGE', payload: object})
+  }
+}

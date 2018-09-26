@@ -9,19 +9,12 @@ import {setPlayers} from '../actions/actions'
 class Home extends React.Component {
 
   state = {
-    average: {},
     history: null
   }
 
   removePlayer = (index) => {
     this.setState({
       players: [...this.state.players.slice(0,index), ...this.state.players.slice(index+1)]
-    })
-  }
-
-  setAverage = (obj) => {
-    this.setState({
-      average: obj
     })
   }
 
@@ -54,7 +47,7 @@ class Home extends React.Component {
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search/>
-        <TeamStats players={this.props.players} setAverage={this.setAverage}/>
+        <TeamStats players={this.props.players}/>
         {this.state.history ? <History history={this.state.history}/>:null}
         <PlayerList players={this.props.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
       </div>
