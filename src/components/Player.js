@@ -3,6 +3,7 @@ import {fetchHistory} from '../actions/fetch_actions'
 import {connect} from 'react-redux'
 
 class Player extends React.Component {
+
   render() {
     return(
       <div className="player">
@@ -15,7 +16,7 @@ class Player extends React.Component {
           <h1> Win %: {this.props.stats.lifeTimeStats[9].value} </h1>
           <h1> Matches Played: {this.props.stats.lifeTimeStats[7].value} </h1>
           <h1> Platform: {this.props.stats.platformNameLong} </h1>
-          <a href="#" onClick={() => {this.props.fetchHistory(this.props.stats.accountId)}}> Check Match History </a>
+          <h1 onClick={() => {this.props.goToHistory(this.props.stats.accountId)}}> Check Match History </h1>
         </div>
       </div>
     )

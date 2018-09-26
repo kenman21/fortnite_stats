@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './containers/Home.js'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import History from './containers/History'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Route path="/home" component={Home}/>
-          <Route path="/history" component={History}/>
-        </div>
+          <div className="App">
+            <Route exact path="/" component={Home}/>
+            <Route path="/history" component={History}/>
+          </div>
       </Router>
     );
   }

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 class PlayerList extends React.Component {
   render() {
-    let players = this.props.players.map((player,index) => <Player key={index} index={index} removePlayer={this.props.removePlayer} stats={player}/>);
+    let players = this.props.players.map((player,index) => <Player key={index} index={index} goToHistory={this.props.goToHistory} stats={player}/>);
     return (
         <CSSTransitionGroup
           transitionName="Player"

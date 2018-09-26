@@ -9,30 +9,22 @@ import {fetchHistory} from '../actions/fetch_actions'
 
 class Home extends React.Component {
 
-  state = {
-    history: null
-  }
-
-  removePlayer = (index) => {
-    this.setState({
-      players: [...this.state.players.slice(0,index), ...this.state.players.slice(index+1)]
-    })
+  goToHistory = (accountId) => {
+    this.props.history.push('/history');
+    this.props.fetchHistory(accountId)
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <div class="nav">
-           <h1 class="title">FORTNITE TEAM</h1>
+        <div className="nav">
+           <h1 className="title">FORTNITE TEAM</h1>
         </div>
-        {this.props.history ? <History/>:
-        <div>
-          <h1 className="header"> Assemble Your Squad </h1>
-          <Search/>
-          <TeamStats/>
-          <PlayerList removePlayer={this.removePlayer}/>
-        </div>
-        }
+        <h1 className="header"> Assemble Your Squad </h1>
+        <Search/>
+        <TeamStats/>
+        <PlayerList goToHistory={this.goToHistory}/>    
       </div>
     )
   }
@@ -47,4 +39,4 @@ function mapStatetoProps(state) {
   }
 }
 
-export default connect(mapStatetoProps, {setPlayers})(Home)
+export default connect(mapStatetoProps, {setPlayers, fetchHistory})(Home)
