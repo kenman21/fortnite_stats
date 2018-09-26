@@ -48,11 +48,3 @@ function mapStatetoProps(state){
 }
 
 export default connect(mapStatetoProps, {setName, setPlatform, fetchPlayer})(Search)
-
-
-// <select onChange={this.props.platformChange} name="platform">
-//   <option selected="selected"> - select a platform - </option>
-//   <option value="pc">PC</option>
-//   <option value="xbl">XBOX</option>
-//   <option value="psn">PS4</option>
-// </select>
