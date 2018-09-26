@@ -3,10 +3,13 @@ import {connect} from 'react-redux'
 
 class History extends React.Component{
 
+  // {this.props.player_history[0].dateCollected}
+
   render() {
+  console.log(this.props.player_history);
   return (
     <div class="history-container">
-      {this.props.history[0].dateCollected}
+      {this.props.player_history ? this.props.player_history[0].dateCollected:null}
     </div>
     )
   }
@@ -14,7 +17,7 @@ class History extends React.Component{
 
 function mapStatetoProps(state){
   return {
-    history: state.history
+    player_history: state.player_history
   }
 }
 

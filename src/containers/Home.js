@@ -10,12 +10,11 @@ import {fetchHistory} from '../actions/fetch_actions'
 class Home extends React.Component {
 
   goToHistory = (accountId) => {
-    this.props.history.push('/history');
-    this.props.fetchHistory(accountId)
+    this.props.fetchHistory(accountId).then(this.props.history.push('/history'))
   }
 
   render() {
-    console.log(this.props);
+
     return (
       <div>
         <div className="nav">
@@ -24,7 +23,7 @@ class Home extends React.Component {
         <h1 className="header"> Assemble Your Squad </h1>
         <Search/>
         <TeamStats/>
-        <PlayerList goToHistory={this.goToHistory}/>    
+        <PlayerList goToHistory={this.goToHistory}/>
       </div>
     )
   }
@@ -35,7 +34,7 @@ function mapStatetoProps(state) {
     players: state.players,
     name: state.name,
     platform: state.platform,
-    history: state.history
+    player_history: state.player_history
   }
 }
 

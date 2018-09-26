@@ -1,6 +1,7 @@
 import React from 'react'
 import {fetchHistory} from '../actions/fetch_actions'
 import {connect} from 'react-redux'
+import {removePlayer} from '../actions/actions'
 
 class Player extends React.Component {
 
@@ -23,4 +24,4 @@ class Player extends React.Component {
   }
 }
 
-export default connect(null, {fetchHistory})(Player)
+export default connect(null, {fetchHistory,removePlayer})(Player)

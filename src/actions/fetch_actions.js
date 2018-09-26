@@ -24,7 +24,7 @@ export function fetchPlayer(name, platform){
 
 export function fetchHistory(accountId){
   return (dispatch) => {
-    fetch(URL + `players/history`, {
+    return fetch(URL + `players/history`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
