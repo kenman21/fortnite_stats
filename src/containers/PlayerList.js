@@ -1,10 +1,11 @@
 import React from 'react'
 import Player from '../components/Player.js'
 import { CSSTransitionGroup } from 'react-transition-group'
+import {connect} from 'react-redux'
 
 class PlayerList extends React.Component {
   render() {
-    let players = this.props.players.map((player,index) => <Player key={index} index={index} removePlayer={this.props.removePlayer} stats={player} getHistory={this.props.getHistory}/>);
+    let players = this.props.players.map((player,index) => <Player key={index} index={index} removePlayer={this.props.removePlayer} stats={player}/>);
     return (
         <CSSTransitionGroup
           transitionName="Player"
@@ -21,4 +22,11 @@ class PlayerList extends React.Component {
   }
 }
 
-export default PlayerList
+function mapStatetoProps(state){
+  return {
+    players: state.players
+  }
+}
+
+
+export default connect(mapStatetoProps)(PlayerList)

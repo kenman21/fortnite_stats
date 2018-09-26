@@ -21,3 +21,9 @@ export function setAverage(object){
     dispatch({type: 'SET_AVERAGE', payload: object})
   }
 }
+
+export function removePlayer(index){
+  return (dispatch) => {
+    dispatch({type: 'REMOVE_PLAYER', payload: index})
+  }
+}

@@ -5,6 +5,7 @@ import Search from './Search.js'
 import History from './History.js'
 import {connect} from 'react-redux'
 import {setPlayers} from '../actions/actions'
+import {fetchHistory} from '../actions/fetch_actions'
 
 class Home extends React.Component {
 
@@ -18,27 +19,6 @@ class Home extends React.Component {
     })
   }
 
-  getHistory = (accountId) => {
-    fetch(URL + `players/history`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        accountId: accountId
-      })
-    }).then(resp => resp.json()).then(resp => {
-        if (resp.error) {
-
-        } else {
-          this.setState({
-            history: resp
-          })
-        }
-      }
-    )
-  }
-
   render() {
     return (
       <div>
@@ -47,9 +27,9 @@ class Home extends React.Component {
         </div>
         <h1 className="header"> Assemble Your Squad </h1>
         <Search/>
-        <TeamStats players={this.props.players}/>
-        {this.state.history ? <History history={this.state.history}/>:null}
-        <PlayerList players={this.props.players} removePlayer={this.removePlayer} getHistory={this.getHistory}/>
+        <TeamStats/>
+        {this.props.history ? <History/>:null}
+        <PlayerList removePlayer={this.removePlayer}/>
       </div>
     )
   }
@@ -59,7 +39,8 @@ function mapStatetoProps(state) {
   return {
     players: state.players,
     name: state.name,
-    platform: state.platform
+    platform: state.platform,
+    history: state.history
   }
 }
 

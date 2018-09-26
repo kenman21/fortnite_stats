@@ -1,9 +1,9 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 class History extends React.Component{
 
   render() {
-    console.log(this.props.history)
   return (
     <div class="history-container">
       {this.props.history[0].dateCollected}
@@ -12,4 +12,10 @@ class History extends React.Component{
   }
 }
 
-export default History
+function mapStatetoProps(state){
+  return {
+    history: state.history
+  }
+}
+
+export default connect(mapStatetoProps)(History)

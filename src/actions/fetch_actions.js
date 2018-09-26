@@ -21,3 +21,24 @@ export function fetchPlayer(name, platform){
     )
   }
 }
+
+export function fetchHistory(accountId){
+  return (dispatch) => {
+    fetch(URL + `players/history`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        accountId: accountId
+      })
+    }).then(resp => resp.json()).then(resp => {
+        if (resp.error) {
+
+        } else {
+          dispatch({type: 'SET_HISTORY', payload: resp})
+        }
+      }
+    )
+  }
+}

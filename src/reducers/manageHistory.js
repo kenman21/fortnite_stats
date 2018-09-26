@@ -16,6 +16,10 @@ export default function manageHistory(state = defaultState, action) {
       return {...state, name: action.payload}
     case 'SET_AVERAGE':
       return {...state, average: action.payload}
+    case 'SET_HISTORY':
+      return {...state, history: action.payload}
+    case 'REMOVE_PLAYER':
+      return {...state, players: [...state.players.slice(0,action.payload), ...state.players.slice(action.payload+1)]}
     default:
       return state
     }
